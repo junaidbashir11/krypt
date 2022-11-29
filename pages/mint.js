@@ -1,6 +1,8 @@
 import { useState } from "react";
 import {useAddress,useContract} from "@thirdweb-dev/react"
 import Image from "next/image"
+import NFTS from "../components/nfts"
+import Header from "../components/header"
 
 export default  function Create () {
  
@@ -15,9 +17,10 @@ export default  function Create () {
   const [Name, setName] = useState("");
   const [nfttype, setNfttype] = useState("erc721");
   const [Quantity, setQuantity] = useState(1);
+  const [networks,setNetworks]=useState("mumbai")
   
  const [picture, setPicture] = useState({
-  preview: "/favicon.ico",
+  preview: "/video-calling.png",
   img: ""
 });
 
@@ -97,20 +100,19 @@ async function ERC1155() {
 
   console.log(address)
   return (
-    <div>
-     
-    
+    <div className="">
+     <Header></Header>
+    <div className="row">
 
+      <div className="col" style={{backgroundColor:""}}>
 
-
-
-      <section className="">
+      <section className="container">
         
-        <div className="container">
+        <div className="form-group">
            <center>
            <div className="">
 
-<Image  src={picture.preview} width={300} height={300} ></Image>
+<Image  src={picture.preview} width={300} height={200}></Image>
 
 </div>
            </center>
@@ -120,7 +122,7 @@ async function ERC1155() {
             {/* <!-- File Upload --> */}
             
             {/** file upload */}
-            <div className="mb-6">
+            <div className="">
               <label
                 htmlFor="item-name"
                 className=""
@@ -130,7 +132,7 @@ async function ERC1155() {
               <input
                 type="file"
                 id="item-file"
-                className=""
+                className="form-control"
                 placeholder="Item file"
           
                 onChange={(e)=>setPicture({...picture,img:e.target.files[0],preview:`${URL.createObjectURL(e.target.files[0])}`})}
@@ -149,7 +151,7 @@ async function ERC1155() {
               <input
                 type="text"
                 id="item-name"
-                className=""
+                className="form-control"
                 placeholder="Item name"
                 onChange={(e)=>setName(e.target.value)}
                 required
@@ -167,7 +169,7 @@ async function ERC1155() {
               <input
                 type="text"
                 id="item-name"
-                className=""
+                className="form-control"
                 placeholder="Item title"
                 onChange={(e)=>setTitle(e.target.value)}
                 required
@@ -183,13 +185,10 @@ async function ERC1155() {
               >
                 Description
               </label>
-              <p className="">
-                The description will be included on the {"item's"} detail page
-                underneath its image. Markdown syntax is supported.
-              </p>
+              
               <textarea
                 id="item-description"
-                className=""
+                className="form-control"
                 rows="4"
                 required
                 placeholder="Provide a detailed description of your item."
@@ -202,7 +201,7 @@ async function ERC1155() {
         
 
             {/* <!-- Supply --> */}
-            <button onClick={()=>setNfttype("erc1155")} className="">as erc1155</button>
+            <button onClick={()=>setNfttype("erc1155")} className="btn btn-warning">as erc1155</button>
 
             {
             nfttype!=="erc721"?
@@ -225,15 +224,15 @@ async function ERC1155() {
               <input
                 type="text"
                 id="item-supply"
-                className=""
+                className="form-control"
                 placeholder="1"
                 onChange={(e)=>setQuantity(e.target.value)}
               />
               
-            <button onClick={()=>setNfttype("erc721")} className="">close</button>
+            <button onClick={()=>setNfttype("erc721")} className="btn btn-danger">close</button>
             <button
             onClick={()=>ERC1155()}
-              className=""
+              className="btn btn-primary"
             >
               Create erc1155
             </button>
@@ -248,7 +247,7 @@ async function ERC1155() {
             {/* <!-- Submit --> */}
             <button
             onClick={()=>ERC721()}
-              className=""
+              className="btn btn-primary"
             >
               Create erc721
             </button>
@@ -256,6 +255,25 @@ async function ERC1155() {
         </div>
       </section>
       {/* <!-- end create --> */}
+
+
+
+
+      </div>
+
+      <div className="col" style={{backgroundColor:""}}>
+
+
+
+
+      </div>
+
+    </div>
+
+
+
+
+     
     </div>
   );
 };

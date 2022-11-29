@@ -5,10 +5,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:darkslategray;
+  background-color:whitesmoke;
 }
 
 .connect {
   margin-bottom: 0.5rem;
   width: 230px;
+}
+.img {
+  width: 200px; /* You can set the dimensions to whatever you want */
+  height: 200px;
+  object-fit: cover;
 }

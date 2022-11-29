@@ -1,7 +1,8 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
+import { ConnectWallet ,useLogout} from "@thirdweb-dev/react";
+import Link from "next/link"
 
 export default function Header(){
-
+const logout=useLogout()
  return (
   <div>
 
@@ -10,11 +11,11 @@ export default function Header(){
     <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         
-        <span className="fs-4">Simple header</span>
+        <span className="fs-4">KRYPT</span>
       </a>
 
       <ul className="nav nav-pills">
-        <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
+        
         <li className="nav-item"><a href="#" className="nav-link">Features</a></li>
         <li className="nav-item"><a href="#" className="nav-link">Pricing</a></li>
         <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
@@ -24,6 +25,8 @@ export default function Header(){
             loginOptional: false,
           }}
         /></li>
+      <li className="nav-item"><button className="nav-link" onClick={()=>logout()}>Logout</button></li>
+      <li className="nav-item"><a href="/createlisting" className="nav-link">create Listing</a></li>
       </ul>
     </header>
   </div>
