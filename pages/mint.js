@@ -112,7 +112,7 @@ async function ERC1155() {
            <center>
            <div className="">
 
-<Image  src={picture.preview} width={300} height={200}></Image>
+
 
 </div>
            </center>
@@ -120,8 +120,7 @@ async function ERC1155() {
        
           <div className="">
             {/* <!-- File Upload --> */}
-            
-            {/** file upload */}
+    
             <div className="">
               <label
                 htmlFor="item-name"
@@ -201,7 +200,7 @@ async function ERC1155() {
         
 
             {/* <!-- Supply --> */}
-            <button onClick={()=>setNfttype("erc1155")} className="btn btn-warning">as erc1155</button>
+            <button onClick={()=>setNfttype("erc1155")} className="btn btn-warning"> erc1155 options</button>
 
             {
             nfttype!=="erc721"?
@@ -234,7 +233,7 @@ async function ERC1155() {
             onClick={()=>ERC1155()}
               className="btn btn-primary"
             >
-              Create erc1155
+              mint  erc1155
             </button>
             </div>
 
@@ -249,7 +248,7 @@ async function ERC1155() {
             onClick={()=>ERC721()}
               className="btn btn-primary"
             >
-              Create erc721
+  Mint erc721
             </button>
           </div>
         </div>
@@ -263,7 +262,7 @@ async function ERC1155() {
 
       <div className="col" style={{backgroundColor:""}}>
 
-
+      <Image  src={picture.preview} width={500} height={500}></Image>
 
 
       </div>
