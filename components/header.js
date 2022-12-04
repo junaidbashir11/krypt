@@ -1,8 +1,17 @@
 import { ConnectWallet ,useLogout} from "@thirdweb-dev/react";
 import Link from "next/link"
+import {useRouter} from "next/router"
 
 export default function Header(){
 const logout=useLogout()
+let router=useRouter()
+function logoutaction(e){
+  
+//e.preventDefault()
+//router.push("/")
+logout
+
+}
  return (
   <div>
 
@@ -25,7 +34,7 @@ const logout=useLogout()
             loginOptional: false,
           }}
         /></li>
-      <li className="nav-item"><button className="nav-link" onClick={()=>logout()}>Logout</button></li>
+      <li className="nav-item"><button className="nav-link" onClick={(e)=>logoutaction(e)}>Logout</button></li>
       <li className="nav-item"><a href="/createlisting" className="nav-link">create Listing</a></li>
       </ul>
     </header>

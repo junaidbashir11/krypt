@@ -8,7 +8,7 @@ export default  function Create () {
  
 
   const {contract:erc721}=useContract("0x03ea4b2F400ef807a4bBBef8E37D4CD72C249aEF","nft-collection")
-  const {contract:erc1155}=useContract( "0x1ab9044C60530B2D301489ABe7EaE4733bba3e85","edition")
+  const {contract:erc1155}=useContract("0x1ab9044C60530B2D301489ABe7EaE4733bba3e85","edition")
  
 
   const address=useAddress()

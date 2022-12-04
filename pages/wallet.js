@@ -3,52 +3,16 @@ import {useAddress,useBalance,useUser} from "@thirdweb-dev/react"
 import Header from '../components/header2';
 import NFTS from "../components/nfts";
 import styles from "../styles/Home.module.css";
+import Transactions from "../components/transactions";
+import Tokens from "../components/tokens";
 
 const Wallet = () => {
 
 let {user}=useUser()	
 
-const [transactions,setTransactions]=useState("")
-const [tokens,setTokens]=useState("")
 const [networks,setNetworks]=useState("mumbai")
 const address=useAddress()
 const balance=useBalance()
-
-
-
-async function getTransactions(){
-
-	let request=await fetch(`/api/transactions?address=${address}&chain=mumbai`,{
-		method:"get",
-		headers:{
-
-			"content-type":"application/json"
-		}
-	})
-	let response=await request.json()
-	console.log(response)
- setTransactions(response)
-
-}
-console.log(balance)
-
-
-async function getTokens(){
-
-	let request=await fetch(`/api/token2?address=${address}&chain=mumbai`,{
-		method:"get",
-		headers:{
-
-			"content-type":"application/json"
-		}
-	})
-	let response=await request.json()
-	console.log(response)
- setTokens(response)
-
-}
-
-
 
 
 
@@ -72,9 +36,7 @@ async function getTokens(){
 						</select>
 						<div className="">
 						    
-											<button onClick={()=>getNFTs()} className="">nfts</button>
-											<button onClick={()=>getTransactions()} className="">transactions</button>
-											<button onClick={()=>getTokens()} className="">tokens</button>
+									
 						
 						</div>
 						<div className="row">
@@ -85,9 +47,11 @@ async function getTokens(){
 							</div>
 							<div className="col">
 								<h1>Transanctions</h1>
+								<Transactions  address={address} chain={networks}/>
 							</div>
 							<div className="col">
 								<h1>Tokens</h1>
+								<Tokens  address={address} chain={networks}/>
 							</div>
 
 						</div>
